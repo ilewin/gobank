@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/andy/Dev/GO/gobank'
+docker run --name postgres -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret	-d postgres 
+make: Leaving directory `/Users/andy/Dev/GO/gobank'
+ 
