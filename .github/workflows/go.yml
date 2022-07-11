@@ -41,7 +41,7 @@ jobs:
         with:
           go-version: '>=1.18.0'
         id: go
-        run: go version
+      - run: go version
 
       - name: Checkout into runner
         uses: actions/checkout@v3
