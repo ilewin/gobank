@@ -20,7 +20,7 @@ func TestTransferTx(t *testing.T) {
 	errChan := make(chan error)
 	resultChan := make(chan TransferTxResult)
 
-	n := 5
+	n := 10
 
 	for i := 0; i < n; i++ {
 		go func() {
