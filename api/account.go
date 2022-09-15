@@ -2,6 +2,8 @@ package api
 
 import (
 	"database/sql"
+	"errors"
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -60,7 +62,7 @@ func (server *Server) getAccount(ctx *gin.Context) {
 	account, err := server.store.GetAccount(ctx, req.ID)
 
 	if account.Owner != ctx.MustGet(authorizationPayloadKey).(*token.Payload).Username {
-		ctx.JSON(http.StatusForbidden, errorResponse(err))
+		ctx.JSON(http.StatusForbidden, errorResponse(errors.New(fmt.Sprintf("Account %d does not belong to you", req.ID))))
 		return
 	}
 
