@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
-	"github.com/themeszone/gobank/util"
+	"github.com/transparentideas/gobank/util"
 )
 
 func createRandomTransfer(t *testing.T, a1 Account, a2 Account) Transfer {

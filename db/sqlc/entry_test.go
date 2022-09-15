@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
-	"github.com/themeszone/gobank/util"
+	"github.com/transparentideas/gobank/util"
 )
 
 func createRandomEntry(t *testing.T) Entry {
