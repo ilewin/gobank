@@ -59,7 +59,7 @@ func (server *Server) getAccount(ctx *gin.Context) {
 
 	account, err := server.store.GetAccount(ctx, req.ID)
 
-	if account.Owner != ctx.MustGet(authorizationPayloadKey).(token.Payload).Username {
+	if account.Owner != ctx.MustGet(authorizationPayloadKey).(*token.Payload).Username {
 		ctx.JSON(http.StatusForbidden, errorResponse(err))
 		return
 	}

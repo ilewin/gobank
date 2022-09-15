@@ -7,7 +7,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	db "github.com/transparentideas/gobank/db/sqlc"
-	"github.com/transparentideas/gobank/token"
 	"github.com/transparentideas/gobank/util"
 )
 
@@ -18,17 +17,13 @@ func newTestServer(t *testing.T, store db.Store) *Server {
 		AccessTokenTTL:   time.Minute,
 	}
 
-	tokenMaker, err := token.NewPasetoMaker(config.TokenSymetricKey)
+	server, err := NewServer(&config, store)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	return &Server{
-		store:      store,
-		config:     &config,
-		router:     gin.Default(),
-		tokenMaker: tokenMaker,
-	}
+	return server
+
 }
 
 func TestMain(m *testing.M) {

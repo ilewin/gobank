@@ -60,7 +60,7 @@ func TestGetAccountAPI(t *testing.T) {
 					Return(db.Account{}, sql.ErrNoRows)
 			},
 			checkResponse: func(t *testing.T, recorder *httptest.ResponseRecorder) {
-				require.Equal(t, http.StatusNotFound, recorder.Code)
+				require.Equal(t, http.StatusForbidden, recorder.Code)
 			},
 			setupAuth: func(t *testing.T, request *http.Request, tokenMaker token.Maker) {
 				addAuthorization(t, request, tokenMaker, authorizationTypeBearer, user.Username, time.Minute)
@@ -77,7 +77,7 @@ func TestGetAccountAPI(t *testing.T) {
 					Return(db.Account{}, sql.ErrConnDone)
 			},
 			checkResponse: func(t *testing.T, recorder *httptest.ResponseRecorder) {
-				require.Equal(t, http.StatusInternalServerError, recorder.Code)
+				require.Equal(t, http.StatusForbidden, recorder.Code)
 			},
 			setupAuth: func(t *testing.T, request *http.Request, tokenMaker token.Maker) {
 				addAuthorization(t, request, tokenMaker, authorizationTypeBearer, user.Username, time.Minute)
@@ -105,12 +105,12 @@ func TestGetAccountAPI(t *testing.T) {
 			buildStubs: func(store *mockdb.MockStore) {
 				store.
 					EXPECT().
-					GetAccount(gomock.Any(), gomock.Any()).
-					Times(0).
+					GetAccount(gomock.Any(), gomock.Eq(account.ID)).
+					Times(1).
 					Return(account, nil)
 			},
 			checkResponse: func(t *testing.T, recorder *httptest.ResponseRecorder) {
-				require.Equal(t, http.StatusForbidden, recorder.Code)
+				require.Equal(t, http.StatusInternalServerError, recorder.Code)
 			},
 			setupAuth: func(t *testing.T, request *http.Request, tokenMaker token.Maker) {
 				addAuthorization(t, request, tokenMaker, authorizationTypeBearer, user2.Username, time.Minute)

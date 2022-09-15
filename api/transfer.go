@@ -24,7 +24,7 @@ func (server *Server) createTransfer(ctx *gin.Context) {
 		return
 	}
 
-	authPayload := ctx.MustGet(authorizationPayloadKey).(token.Payload)
+	authPayload := ctx.MustGet(authorizationPayloadKey).(*token.Payload)
 	fromAccount, ok := server.validAccount(ctx, req.FromAccountID, req.Currency)
 
 	if fromAccount.Owner != authPayload.Username {

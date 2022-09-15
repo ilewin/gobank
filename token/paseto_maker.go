@@ -39,7 +39,7 @@ func (m *PasetoMaker) CreateToken(username string, duration time.Duration) (stri
 }
 
 func (m *PasetoMaker) VerifyToken(token string) (*Payload, error) {
-	var payload Payload
+	var payload *Payload
 	err := m.passeto.Decrypt(token, m.symetricKey, &payload, nil)
 	if err != nil {
 		return nil, err
@@ -49,5 +49,5 @@ func (m *PasetoMaker) VerifyToken(token string) (*Payload, error) {
 		return nil, err
 	}
 
-	return &payload, nil
+	return payload, nil
 }

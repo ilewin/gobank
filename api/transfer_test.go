@@ -13,6 +13,7 @@ import (
 	"github.com/stretchr/testify/require"
 	mockdb "github.com/transparentideas/gobank/db/mock"
 	db "github.com/transparentideas/gobank/db/sqlc"
+	"github.com/transparentideas/gobank/token"
 )
 
 func TestTransferAPI(t *testing.T) {
@@ -35,6 +36,7 @@ func TestTransferAPI(t *testing.T) {
 		body          gin.H
 		buildStubs    func(store *mockdb.MockStore)
 		checkResponse func(t *testing.T, recorder *httptest.ResponseRecorder)
+		setupAuth     func(t *testing.T, request *http.Request, tokenMaker token.Maker)
 	}{
 		{
 			name: "OK",
@@ -91,6 +93,9 @@ func TestTransferAPI(t *testing.T) {
 			checkResponse: func(t *testing.T, recorder *httptest.ResponseRecorder) {
 				require.Equal(t, http.StatusOK, recorder.Code)
 			},
+			setupAuth: func(t *testing.T, request *http.Request, tokenMaker token.Maker) {
+				addAuthorization(t, request, tokenMaker, authorizationTypeBearer, user1.Username, time.Minute)
+			},
 		},
 		{
 			name: "Different currencies",
@@ -114,6 +119,9 @@ func TestTransferAPI(t *testing.T) {
 			},
 			checkResponse: func(t *testing.T, recorder *httptest.ResponseRecorder) {
 				require.Equal(t, http.StatusBadRequest, recorder.Code)
+			},
+			setupAuth: func(t *testing.T, request *http.Request, tokenMaker token.Maker) {
+				addAuthorization(t, request, tokenMaker, authorizationTypeBearer, user1.Username, time.Minute)
 			},
 		},
 	}
@@ -140,7 +148,7 @@ func TestTransferAPI(t *testing.T) {
 			request, err := http.NewRequest(http.MethodPost, url, bytes.NewReader(data))
 			require.NoError(t, err)
 			require.NotEmpty(t, request)
-
+			tc.setupAuth(t, request, server.tokenMaker)
 			server.router.ServeHTTP(recorder, request)
 
 			tc.checkResponse(t, recorder)
