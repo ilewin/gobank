@@ -2,7 +2,6 @@ package db
 
 import (
 	"context"
-	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -59,7 +58,6 @@ func TestTransferTx(t *testing.T) {
 		require.NoError(t, err)
 
 		fromAccount := txRes.FromAccount
-		fmt.Println(fromAccount)
 		require.NotEmpty(t, fromAccount)
 		require.Equal(t, fromAccount.ID, account1.ID)
 

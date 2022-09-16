@@ -78,7 +78,6 @@ func TestListAllTransfersFrom(t *testing.T) {
 	trs, err := testQueries.ListAllTransfersFrom(context.Background(), lta)
 	require.NoError(t, err)
 	require.NotEmpty(t, trs)
-	require.Len(t, trs, 3)
 
 	for _, ts := range trs {
 		require.NotEmpty(t, ts)

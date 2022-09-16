@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/require"
 	db "github.com/transparentideas/gobank/db/sqlc"
 	"github.com/transparentideas/gobank/util"
 )
@@ -18,9 +19,7 @@ func newTestServer(t *testing.T, store db.Store) *Server {
 	}
 
 	server, err := NewServer(&config, store)
-	if err != nil {
-		t.Fatal(err)
-	}
+	require.NoError(t, err)
 
 	return server
 
