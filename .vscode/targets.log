@@ -6,8 +6,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
 
-# Make data base, printed on Wed Jul 13 13:08:47 2022
+
+# Make data base, printed on Wed Sep 14 18:40:02 2022
 
 # Variables
 
@@ -16,7 +19,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # environment
-VSCODE_LOG_NATIVE = false
+NODE_TLS_REJECT_UNAUTHORIZED = 0
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -29,6 +32,7 @@ CURDIR := /Users/andy/Dev/GO/gobank
 SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
+ 
 # environment
 _ = /usr/bin/make
 # environment
@@ -40,23 +44,15 @@ GO111MODULE = on
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
 __CFBundleIdentifier = com.microsoft.VSCode
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/sj/lb0z8vn53_923x9d90rtwwzh0000gn/T/vscode-ipc-7ed8c9e7-ec66-4b17-870d-4cd8e4ce3f9e.sock
 # environment
 VSCODE_CWD = /
 # environment
 GOPROXY = https://proxy.golang.org,direct
 # environment
-PATH = /Users/andy/Dev/googlecloud/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/Users/andy/Dev/Flutter/flutter/bin:/bin:/Users/andy/Library/Application Support/cloud-code/installer/google-cloud-sdk/bin:/Users/andy/google-cloud-sdk/bin
+PATH = /Users/andy/Library/Application Support/cloud-code/installer/google-cloud-sdk/bin:/Users/andy/Dev/googlecloud/google-cloud-sdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/Library/Apple/usr/bin:/Users/andy/Dev/Flutter/flutter/bin:/bin:/Users/andy/google-cloud-sdk/bin
 # environment
 GOPATH = /Users/andy/go:/Users/andy/Dev/GO
-# environment
-LaunchInstanceID = 961EE607-30C1-4750-A51F-0F2ED0E96D52
-# environment
-VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
@@ -64,13 +60,11 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 CLOUDSDK_METRICS_ENVIRONMENT = cloudcode.vscode
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.hHfjxp7yyl/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.GEq7eoad9t/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-CLOUDSDK_METRICS_ENVIRONMENT_VERSION = 1.19.0
-# environment
-VSCODE_PIPE_LOGGING = true
+CLOUDSDK_METRICS_ENVIRONMENT_VERSION = 1.20.1
 # environment
 PWD = /Users/andy/Dev/GO/gobank
 # environment
@@ -82,11 +76,11 @@ HOME = /Users/andy
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/andy/Library/Application Support/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+VSCODE_CODE_CACHE_PATH = /Users/andy/Library/Application Support/Code/CachedData/e7f30e38c5a4efafeec8ad52861eb772a9ee4dfb
 # environment
 LOGNAME = andy
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -116,7 +110,9 @@ TMPDIR = /var/folders/sj/lb0z8vn53_923x9d90rtwwzh0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/andy/Library/Application Support/Code/1.68.1-main.sock
+VSCODE_IPC_HOOK = /Users/andy/Library/Application Support/Code/1.71.1-main.sock
+# environment
+MallocNanoZone = 0
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -124,7 +120,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.73565523.73565529
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.85634663.85634669
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -139,8 +135,6 @@ MAKEFILES :=
 <F = $(notdir $<)
 # environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -152,9 +146,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 556
+VSCODE_PID = 16097
 # variable set hash-table stats:
-# Load=71/1024=7%, Rehash=0, Collisions=2/95=2%
+# Load=66/1024=6%, Rehash=0, Collisions=2/90=2%
 
 # Pattern-specific Variable Values
 
@@ -162,11 +156,12 @@ VSCODE_PID = 556
 
 # Directories
 
-# . (device 16777223, inode 70979997): 20 files, no impossibilities.
+# . (device 16777221, inode 70979997): 23 files, no impossibilities.
 
-# 20 files, no impossibilities in 1 directories.
+# 23 files, no impossibilities in 1 directories.
 
 # Implicit Rules
+ 
 
 # No implicit rules.
 
@@ -190,7 +185,16 @@ all:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc server
+migratedown1:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 17):
+	migrate -path "db/migration" -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
+	
+
+.PHONY: postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 sqlc server mock
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -200,7 +204,7 @@ sqlc:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 17):
+#  commands to execute (from `Makefile', line 23):
 	sqlc generate
 	
 
@@ -213,7 +217,7 @@ sqlc:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-12 14:31:22
+#  Last modified 2022-09-09 17:30:53
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -224,7 +228,7 @@ server:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 23):
+#  commands to execute (from `Makefile', line 29):
 	go run main.go
 	
 
@@ -232,7 +236,7 @@ test:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 20):
+#  commands to execute (from `Makefile', line 26):
 	go test -v -cover ./...
 	
 
@@ -265,8 +269,17 @@ migrateup:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 11):
+#  commands to execute (from `Makefile', line 14):
 	migrate -path "db/migration" -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up
+	
+
+migrateup1:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 11):
+	migrate -path "db/migration" -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose up 1
 	
 
 migratedown:
@@ -274,12 +287,21 @@ migratedown:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 14):
-	migrate -path "db/migration" -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down
+#  commands to execute (from `Makefile', line 20):
+	migrate -path "db/migration" -database "postgresql://root:secret@localhost:5432/simple_bank?sslmode=disable" -verbose down 1
+	
+
+mock:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 32):
+	mockgen -package mockdb -destination db/mock/store.go  github.com/transparentideas/gobank/db/sqlc Store
 	
 
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/32=0%
+# Load=16/1024=2%, Rehash=0, Collisions=0/38=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -291,8 +313,6 @@ migratedown:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Jul 13 13:08:47 2022
+# Finished Make data base on Wed Sep 14 18:40:02 2022
 
  
-make: *** No rule to make target `all'.  Stop.
-

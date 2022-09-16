@@ -13,21 +13,28 @@ type Querier interface {
 	AddEntry(ctx context.Context, arg AddEntryParams) (Entry, error)
 	CreateAccount(ctx context.Context, arg CreateAccountParams) (Account, error)
 	CreateTransfer(ctx context.Context, arg CreateTransferParams) (Transfer, error)
+	CreateUser(ctx context.Context, arg CreateUserParams) (User, error)
 	DeleteAccount(ctx context.Context, id int64) error
 	DeleteEntries(ctx context.Context, accountID int64) ([]Entry, error)
 	DeleteEntry(ctx context.Context, id int64) (Entry, error)
+	DeleteUser(ctx context.Context, username string) error
 	GetAccount(ctx context.Context, id int64) (Account, error)
 	GetAccountForUpdate(ctx context.Context, id int64) (Account, error)
 	GetAccounts(ctx context.Context, owner string) ([]Account, error)
 	GetEntry(ctx context.Context, id int64) (Entry, error)
 	GetTransfer(ctx context.Context, id int64) (Transfer, error)
+	GetUser(ctx context.Context, username string) (User, error)
+	GetUserForUpdate(ctx context.Context, username string) (User, error)
+	GetUsers(ctx context.Context, fullName string) ([]User, error)
 	ListAccounts(ctx context.Context, arg ListAccountsParams) ([]Account, error)
 	ListAllTransfersFrom(ctx context.Context, arg ListAllTransfersFromParams) ([]Transfer, error)
 	ListAllTransfersFromTo(ctx context.Context, arg ListAllTransfersFromToParams) ([]Transfer, error)
 	ListAllTransfersTo(ctx context.Context, arg ListAllTransfersToParams) ([]Transfer, error)
 	ListEntries(ctx context.Context, arg ListEntriesParams) ([]Entry, error)
+	ListUsers(ctx context.Context, arg ListUsersParams) ([]User, error)
 	UpdateAccount(ctx context.Context, arg UpdateAccountParams) (Account, error)
 	UpdateEntry(ctx context.Context, arg UpdateEntryParams) (Entry, error)
+	UpdateUser(ctx context.Context, arg UpdateUserParams) (User, error)
 }
 
 var _ Querier = (*Queries)(nil)

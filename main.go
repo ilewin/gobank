@@ -5,9 +5,9 @@ import (
 	"log"
 
 	_ "github.com/lib/pq"
-	"github.com/themeszone/gobank/api"
-	db "github.com/themeszone/gobank/db/sqlc"
-	"github.com/themeszone/gobank/util"
+	"github.com/transparentideas/gobank/api"
+	db "github.com/transparentideas/gobank/db/sqlc"
+	"github.com/transparentideas/gobank/util"
 )
 
 func main() {
@@ -23,7 +23,10 @@ func main() {
 	}
 
 	store := db.NewStore(connDB)
-	server := api.NewServer(store)
+	server, err := api.NewServer(conf, store)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	err = server.Start(conf.ServerAddress)
 

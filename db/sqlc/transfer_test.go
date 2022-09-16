@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
-	"github.com/themeszone/gobank/util"
+	"github.com/transparentideas/gobank/util"
 )
 
 func createRandomTransfer(t *testing.T, a1 Account, a2 Account) Transfer {
@@ -78,7 +78,6 @@ func TestListAllTransfersFrom(t *testing.T) {
 	trs, err := testQueries.ListAllTransfersFrom(context.Background(), lta)
 	require.NoError(t, err)
 	require.NotEmpty(t, trs)
-	require.Len(t, trs, 3)
 
 	for _, ts := range trs {
 		require.NotEmpty(t, ts)
