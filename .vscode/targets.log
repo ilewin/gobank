@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Wed Sep 14 18:40:02 2022
+# Make data base, printed on Mon Sep 19 20:41:53 2022
 
 # Variables
 
@@ -19,7 +19,9 @@ make: *** No rule to make target `all'.  Stop.
 # automatic
 ?F = $(notdir $?)
 # environment
-NODE_TLS_REJECT_UNAUTHORIZED = 0
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+LC_CTYPE = UTF-8
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -32,7 +34,6 @@ CURDIR := /Users/andy/Dev/GO/gobank
 SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
- 
 # environment
 _ = /usr/bin/make
 # environment
@@ -46,7 +47,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_CWD = /
+VSCODE_CWD = /Users/andy/Dev/GO/gobank
 # environment
 GOPROXY = https://proxy.golang.org,direct
 # environment
@@ -60,11 +61,11 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 CLOUDSDK_METRICS_ENVIRONMENT = cloudcode.vscode
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.GEq7eoad9t/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.4WSkdnuh2w/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
-CLOUDSDK_METRICS_ENVIRONMENT_VERSION = 1.20.1
+CLOUDSDK_METRICS_ENVIRONMENT_VERSION = 1.20.2
 # environment
 PWD = /Users/andy/Dev/GO/gobank
 # environment
@@ -74,13 +75,15 @@ GOMODCACHE = /Users/andy/go/pkg/mod
 # environment
 HOME = /Users/andy
 # default
-MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+# environment
+VSCODE_CLI = 1
 # environment
 VSCODE_CODE_CACHE_PATH = /Users/andy/Library/Application Support/Code/CachedData/e7f30e38c5a4efafeec8ad52861eb772a9ee4dfb
 # environment
 LOGNAME = andy
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -92,17 +95,21 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 1
+SHLVL = 3
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = andy
 # makefile
 .DEFAULT_GOAL := postgres
+# environment
+TERM_SESSION_ID = 7C979B7B-E2FF-41E5-9203-E1AF8B10486F
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
-MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# environment
+TERM_PROGRAM = Apple_Terminal
 # default
 .VARIABLES := 
 # environment
@@ -120,7 +127,9 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.85634663.85634669
+TERM_PROGRAM_VERSION = 445
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.85634663.85634669.3A107F4E-CAE1-45CA-AEAA-E3D829F2F8D9
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -146,9 +155,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 16097
+TERM = xterm-256color
+# environment
+VSCODE_PID = 11885
 # variable set hash-table stats:
-# Load=66/1024=6%, Rehash=0, Collisions=2/90=2%
+# Load=72/1024=7%, Rehash=0, Collisions=2/96=2%
 
 # Pattern-specific Variable Values
 
@@ -156,12 +167,11 @@ VSCODE_PID = 16097
 
 # Directories
 
-# . (device 16777221, inode 70979997): 23 files, no impossibilities.
+# . (device 16777223, inode 70979997): 24 files, no impossibilities.
 
-# 23 files, no impossibilities in 1 directories.
+# 24 files, no impossibilities in 1 directories.
 
 # Implicit Rules
- 
 
 # No implicit rules.
 
@@ -173,7 +183,7 @@ postgres:
 #  File does not exist.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 2):
-	docker run --name postgres -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret	-d postgres 
+	docker run --network bank-netowrk --name postgres -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret	-d postgres 
 	
 
 # Not a target:
@@ -217,7 +227,7 @@ sqlc:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-09 17:30:53
+#  Last modified 2022-09-16 12:04:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -301,6 +311,7 @@ mock:
 	
 
 # files hash-table stats:
+ 
 # Load=16/1024=2%, Rehash=0, Collisions=0/38=0%
 # VPATH Search Paths
 
@@ -313,6 +324,6 @@ mock:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Sep 14 18:40:02 2022
+# Finished Make data base on Mon Sep 19 20:41:53 2022
 
  
