@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: gobank-api
-        image: 259979020371.dkr.ecr.eu-central-1.amazonaws.com/gobank:e81d766b0cb4a2ab9b1945a2ab26b0fd4c5e1c90
+        image: 259979020371.dkr.ecr.eu-central-1.amazonaws.com/gobank:674c1bbff86905396c70a45df4b9fd435ae033cd
         ports:
         - containerPort: 8080
