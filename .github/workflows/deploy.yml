@@ -39,5 +39,5 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
         docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
 
-    - name: Update kube configuration
+    - name: Update kube conf
       run: aws eks update-kubeconfig --name gobank-cluster --region eu-central-1
