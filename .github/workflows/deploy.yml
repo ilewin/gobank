@@ -40,4 +40,4 @@ jobs:
         docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
 
     - name: Update kube config
-      run: aws eks update-kubeconfig --name gobank --region eu-central-1
+      run: aws eks update-kubeconfig --name gobank-cluster --region eu-central-1
